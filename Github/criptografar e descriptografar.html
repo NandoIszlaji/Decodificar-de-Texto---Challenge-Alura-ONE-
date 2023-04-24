@@ -1,0 +1,110 @@
+
+<script>
+
+/* e vira enter
+   i vira imes
+   a vira ai
+   o vira ober
+   u vira ufat
+
+   Funcionar só para letras minúsculas.*/
+
+
+var input = [];
+var output = [];
+
+function criptografar(string) {
+
+	var textoCriptografado = [];
+	//Passar o input por um for e ir substituindo as vogais. Usar .push para acrescentar letras. Ex.: depois da letra e push(nter)
+
+	for (var i = 0; i < string.length; i++) {
+
+		if(string[i] == 'a' ) {
+
+			textoCriptografado = textoCriptografado + string[i] + 'i';
+
+		} else if(string[i] == 'e') {
+
+			textoCriptografado = textoCriptografado + string[i] + 'nter';
+
+		} else if(string[i] == 'i') {
+
+			textoCriptografado = textoCriptografado + string[i] + 'mes';
+
+		} else if(string[i] == 'o') {
+
+			textoCriptografado = textoCriptografado + string[i] + 'ber';
+
+		} else if(string[i] == 'u') {
+
+			textoCriptografado = textoCriptografado + string[i] + 'fat';
+		} else {
+
+			textoCriptografado = textoCriptografado + string[i];
+
+		}
+		
+		
+		console.log(string[i]);
+	}
+
+	return textoCriptografado;
+}
+
+
+
+function descriptografar(string) {
+
+	var textoDescriptografado = [];
+
+	for (var i = 0; i < string.length; i++) {
+
+		if(string[i] == 'a' ) {
+
+			textoDescriptografado = textoDescriptografado + string[i];
+			i++; // Serve para pular o i de 'ai'
+
+		} else if(string[i] == 'e') {
+
+			textoDescriptografado = textoDescriptografado + string[i];
+			i = i + 4; // Serve para pular as 4 letras 'nter'
+
+		} else if(string[i] == 'i') {
+
+			textoDescriptografado = textoDescriptografado + string[i];
+			i = i + 3; // Serve para pular as 3 letras 'mes'
+
+		} else if(string[i] == 'o') {
+
+			textoDescriptografado = textoDescriptografado + string[i];
+			i = i + 3; // Serve para pular as 3 letras 'ber'
+
+		} else if(string[i] == 'u') {
+
+			textoDescriptografado = textoDescriptografado + string[i];
+			i = i + 3; // Serve para pular as 3 letras 'fat'
+
+		} else {
+			// Mantém as demais letras
+			textoDescriptografado = textoDescriptografado + string[i];
+
+		}
+		
+		
+		//console.log(string[i]);
+	}
+
+	return textoDescriptografado;
+}
+
+
+//output = criptografar('gato lindo');
+
+//console.log(output);
+
+output = descriptografar("pairaibenterns poberr enterncairair enterssenter dentersaifimesober enter tenterr fimesnailimeszaidober enterlenter coberm sufatcenterssober!");
+
+console.log(output);
+
+</script>
